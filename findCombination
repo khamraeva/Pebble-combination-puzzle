@@ -1,7 +1,5 @@
-function findCombination() {
-  const multipliedSum = 24;
-  const totalSum = 22;
-  const options = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+function findCombination(multipliedSum = 24, totalSum = 22) {
+  const options = Array.from(Array(10).keys());
   const result = [];
   
   options.forEach(firstNumber => {
