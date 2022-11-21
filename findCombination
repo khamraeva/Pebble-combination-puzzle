@@ -13,7 +13,7 @@ function findCombination(multipliedSum = 24, totalSum = 22) {
           options.forEach(fifthNumber => {
             if (firstNumber + secondNumber + thirdNumber + fourthNumber + fifthNumber === totalSum
               && firstNumber + thirdNumber === fourthNumber + fifthNumber) {
-              combination.push(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber)
+              combination.push(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
             }
           });
         });
@@ -51,7 +51,7 @@ function findMultiple(options, multipliedSum) {
 }
                   
 function findFourth(array) {
-  return array.map(item => Object.assign({...item, fourth: item.second/2}))
+  return array.map(item => Object.assign({...item, fourth: item.second/2}));
 };
 
 function countAll(array, total) {
