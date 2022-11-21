@@ -26,3 +26,58 @@ function findCombination(multipliedSum = 24, totalSum = 22) {
 }
 
 findCombination();
+
+///////////////////////////////////////////////
+
+const options = Array.from(Array(10).keys());
+
+function findCombination(multipliedSum = 24, totalSum = 22) {
+  const firstAndSecond = findMultiple(options, multipliedSum);
+  const countThird = findFourth(firstAndSecond);
+  const allCombinations = countAll(countThird, totalSum);
+  return notUnique(allCombinations)
+}
+
+function findMultiple(options, multipliedSum) {
+  const res = [];
+  options.forEach(first => {
+    options.forEach(second => {
+      if(first * second === multipliedSum && !(second % 2)) {
+        res.push({first, second});
+      };
+    })
+  });
+  return res;
+}
+                  
+function findFourth(array) {
+  return array.map(item => Object.assign({...item, fourth: item.second/2}))
+};
+
+function countAll(array, total) {
+  const result = [];
+  array.forEach(item => {
+    const { first, second, fourth } = item;
+    options.forEach(third => {
+      options.forEach(fifth => {
+        const combination = [first, second, third, fourth, fifth];
+        if (first + third === fourth + fifth 
+        && countTotal(combination, total)) {
+          result.push(combination);
+        } 
+      });
+    });
+  });
+  return result;
+}
+
+function countTotal(array, toEqual) {
+  const sum = array.reduce((acc, item) => acc + item);
+  return sum === toEqual;
+}
+
+function notUnique(arr) {
+  return arr.filter(array => new Set(array).size !== array.length);
+}
+
+findCombination();
