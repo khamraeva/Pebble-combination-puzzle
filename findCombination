@@ -32,8 +32,8 @@ findCombination();
 const options = Array.from(Array(10).keys());
 
 function findCombination(multipliedSum = 24, totalSum = 22) {
-  const firstAndSecond = findMultiple(options, multipliedSum);
-  const countThird = findFourth(firstAndSecond);
+  const countMulti = findMultiple(options, multipliedSum);
+  const countThird = findFourth(countMulti);
   const allCombinations = countAll(countThird, totalSum);
   return notUnique(allCombinations)
 }
